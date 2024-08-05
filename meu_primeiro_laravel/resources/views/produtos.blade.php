@@ -31,12 +31,12 @@
             <tbody>
                 @foreach ($produtos as $produto)
                     <tr>
-                        <td>{{ $produto->id }}</td>
-                        <td>{{ $produto->nome }}</td>
-                        <td>{{ $produto->descricao }}</td>
-                        <td>{{ $produto->preco }}</td>
-                        <td>{{ $produto->quantidade }}</td>
-                        <td>
+                            <td>{{ $produto->id }}</td>
+                            <td>{{ $produto->nome }}</td>
+                            <td>{{ $produto->descricao }}</td>
+                            <td>{{ $produto->preco }}</td>
+                            <td>{{ $produto->quantidade }}</td>
+                            <td>
                             <a href="{{ route('produtos.show', $produto->id) }}" class="btn btn-info">Ver</a>
                             <a href="{{ route('produtos.edit', $produto->id) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('produtos.destroy', $produto->id) }}" method="POST" style="display:inline;">
