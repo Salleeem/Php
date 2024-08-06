@@ -22,10 +22,9 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return redirect()->route('produtos.index')
-                         ->with('success', 'Produto criado com sucesso.');
-
+        return view('produtos.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +33,7 @@ class ProdutoController extends Controller
     {
         $request->validate([
             'nome' => 'required',
-            'preco' => 'required|decimal'
+            'preco' => 'required|numeric'
         ]);
     }
 
