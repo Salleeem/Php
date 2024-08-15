@@ -12,6 +12,7 @@
     <div class="container">
         <h2>Dashboard - Usuários </h2>
         <form action="{{route('usuarios.logout')}}" method="post">
+            @csrf
             <input type="submit" value="Sair">
         </form>
 

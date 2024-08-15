@@ -4,6 +4,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VagaController;
+use App\Http\Middleware\VagaMiddleware;
 
 //rota para a home
 
@@ -47,9 +49,7 @@ Route::get('/sucesso', function () {
     return view('sucesso');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
+Route::resource('/vagas', VagaController::class)->
+middleware(VagaMiddleware::class);
 
 

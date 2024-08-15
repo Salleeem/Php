@@ -11,7 +11,7 @@ class Usuario extends Authenticatable
     use Notifiable, HasFactory;
 
     protected $fillable = [
-        'nome', 'email', 'password',
+        'nome', 'email', 'password', 'cnpj', 'tipo', 'nome_empresa',
     ];
 
     protected $hidden = [
@@ -21,5 +21,15 @@ class Usuario extends Authenticatable
     public function inscricoes()
     {
         return $this->hasMany(Inscricao::class);
+    }
+
+    public function isUsuario()
+    {
+        return $this->tipo === 'usuario';
+    }
+
+    public function isEmpresa()
+    {
+        return $this->tipo === 'empresa';
     }
 }

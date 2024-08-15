@@ -1,15 +1,20 @@
-<!-- resources/views/components/header.blade.php -->
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="/">Laravel</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/registro">Cadastro</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+@if(Auth::check())
+@if (
+request() //captura os dados da requisição
+    ->user() //captura o usuario que fez a requisição
+        ->where('tipo','empresa') // a partir de model binding ele procura se o tipo é empresa
+            ->first() //transforma o resultado da consulta em um valor boolean, retornando true or false
+)
+    <div>
+        Olá empresa
+    </div>
+@else
+    <div>
+        Olá Usuário
+    </div>
+@endif
+@endif
+
+
+
+
